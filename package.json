@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "contributors": ["0BLV1V10N1 (https://github.com/0BL1V10N1)"],
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
@@ -20,6 +21,16 @@
     "type-check": "vue-tsc --build",
     "prepare": "node .husky/install.mjs"
   },
+  "homepage": "https://github.com/elephlix-inc/elephlix#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elephlix-inc/elephlix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elephlix-inc/elephlix/issues"
+  },
+  "keywords": ["typescript", "vue", "website", "videos"],
+  "license": "MIT",
   "dependencies": {
     "pinia": "^3.0.1",
     "vue": "^3.5.13",
@@ -35,6 +46,9 @@
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
+    "commitizen": "^4.3.1",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "npm-run-all2": "^7.0.2",
@@ -43,5 +57,14 @@
     "vite-plugin-vue-devtools": "^7.7.2",
     "vitest": "^3.1.1",
     "vue-tsc": "^2.2.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
   }
 }
