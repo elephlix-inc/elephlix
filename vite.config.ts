@@ -1,6 +1,7 @@
 import { URL, fileURLToPath } from "node:url";
 
 import { codecovVitePlugin } from "@codecov/vite-plugin";
+import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
 import { defineConfig } from "vite";
 import vueDevTools from "vite-plugin-vue-devtools";
@@ -9,6 +10,7 @@ import vueDevTools from "vite-plugin-vue-devtools";
 export default defineConfig({
   plugins: [
     vue(),
+    tailwindcss(),
     vueDevTools(),
     codecovVitePlugin({
       enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,

@@ -3,6 +3,7 @@
     "Vue.volar",
     "vitest.explorer",
     "biomejs.biome",
+    "bradlc.vscode-tailwindcss",
     "wix.vscode-import-cost",
     "streetsidesoftware.code-spell-checker",
     "aaron-bond.better-comments"
