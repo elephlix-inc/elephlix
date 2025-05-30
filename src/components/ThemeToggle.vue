@@ -22,7 +22,7 @@ function toggleTheme() {
 <template>
   <button
     @click="toggleTheme"
-    class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition text-gray-700 dark:text-gray-200"
+    class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition text-gray-700 dark:text-gray-200 cursor-pointer"
   >
     <Icon :icon="theme === 'dark' ? 'mdi:weather-sunny' : 'mdi:weather-night'" class="w-5 h-5" />
     <span class="hidden sm:inline">{{ theme === 'dark' ? t('navbar.light') : t('navbar.dark') }}</span>

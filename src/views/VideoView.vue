@@ -7,17 +7,17 @@ import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
 
+const auth = useAuthStore();
 const { t } = useI18n();
 const route = useRoute();
-const slug = route.params.slug as string;
-
-const errorMessage = ref<string | null>(null);
-
-const auth = useAuthStore();
 
 onMounted(() => {
   auth.ensureAuthReady();
 });
+
+const slug = route.params.slug;
+const url = `${import.meta.env.VITE_API_BASE_URL}/uploads/videos/${slug}/video.mp4`;
+const errorMessage = ref<string | null>(null);
 
 const {
   data: video,
@@ -54,14 +54,10 @@ const {
           <!-- Video player -->
           <div class="flex-1">
             <video
-              v-if="video.url"
-              :src="video.url"
+              :src="url"
               controls
               class="w-full rounded-xl bg-black aspect-video"
             />
-            <div v-else class="aspect-video w-full bg-gray-200 dark:bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 dark:text-gray-500">
-              {{ t('video.noSource') }}
-            </div>
             <h1 class="mt-4 text-2xl font-bold text-gray-900 dark:text-white">{{ video.title }}</h1>
             <div class="flex flex-wrap items-center gap-4 mt-2 text-gray-600 dark:text-gray-300">
               <span>{{ video.views }} {{ t('video.views') }}</span>

@@ -12,6 +12,25 @@
     "views": "views",
     "subscribers": "{count} subscribers"
   },
+  "profile": {
+    "upload": "Upload a video",
+    "title": "Title",
+    "titlePlaceholder": "Video title",
+    "titleError": "Title must be at least 6 characters.",
+    "description": "Description",
+    "descriptionPlaceholder": "Video description...",
+    "descriptionError": "Description must be at least 10 characters.",
+    "file": "Video file",
+    "fileError": "Video file is invalid.",
+    "filePlaceholder": "No file selected",
+    "submit": "Publish",
+    "uploading": "Publishing...",
+    "uploadSuccess": "Video published successfully!",
+    "uploadError": "Error while publishing.",
+    "myVideos": "My videos",
+    "errorVideos": "Error loading your videos.",
+    "noVideos": "You haven't published any videos yet."
+  },
   "login": {
     "title": "Login",
     "email": "Email",

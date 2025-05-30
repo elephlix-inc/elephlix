@@ -11,6 +11,7 @@ const { t } = useI18n();
 
 const registerForm = ref({ email: "", password: "", username: "" });
 const loading = computed(() => auth.registerStatus === "pending");
+
 const emailValid = computed(() => /.+@.+\..+/.test(registerForm.value.email));
 const passwordValid = computed(() => registerForm.value.password.length >= 6);
 const usernameValid = computed(() => registerForm.value.username.length >= 3);
@@ -54,7 +55,7 @@ watch(
     <div class="relative">
       <label for="register-email" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-200">{{ t('register.email') }}</label>
       <div :class="[
-        'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 focus-within:ring-2',
+        'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 dark:text-white focus-within:ring-2',
         emailValid ? 'border-green-500 focus-within:ring-green-400' : registerForm.email ? 'border-red-500 focus-within:ring-red-400' : 'border-gray-300 dark:border-gray-700'
       ]">
         <span class="pl-3"><Icon icon="mdi:email-outline" class="text-gray-400 w-5 h-5" /></span>
@@ -68,7 +69,7 @@ watch(
     <div class="relative">
       <label for="register-password" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-200">{{ t('register.password') }}</label>
       <div :class="[
-        'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 focus-within:ring-2',
+        'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 dark:text-white focus-within:ring-2',
         passwordValid ? 'border-green-500 focus-within:ring-green-400' : registerForm.password ? 'border-red-500 focus-within:ring-red-400' : 'border-gray-300 dark:border-gray-700'
       ]">
         <span class="pl-3"><Icon icon="mdi:lock-outline" class="text-gray-400 w-5 h-5" /></span>
@@ -82,7 +83,7 @@ watch(
     <div class="relative">
       <label for="register-username" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-200">{{ t('register.username') }}</label>
       <div :class="[
-        'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 focus-within:ring-2',
+        'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 dark:text-white focus-within:ring-2',
         usernameValid ? 'border-green-500 focus-within:ring-green-400' : registerForm.username ? 'border-red-500 focus-within:ring-red-400' : 'border-gray-300 dark:border-gray-700'
       ]">
         <span class="pl-3"><Icon icon="mdi:account-outline" class="text-gray-400 w-5 h-5" /></span>
@@ -93,7 +94,7 @@ watch(
         {{ t('register.usernameError') }}
       </div>
     </div>
-    <button type="submit" :disabled="loading || !canSubmit" class="w-full text-white bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-semibold rounded-lg text-base px-5 py-2.5 flex items-center justify-center gap-2 transition-all duration-150 shadow-md">
+    <button type="submit" :disabled="loading || !canSubmit" class="w-full text-white bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-semibold rounded-lg text-base px-5 py-2.5 flex items-center justify-center gap-2 transition-all duration-150 shadow-md cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
       <Icon icon="mdi:account-plus" class="w-5 h-5" />
       {{ t('register.submit') }}
     </button>
@@ -106,7 +107,7 @@ watch(
     </div>
     <div class="flex items-center justify-center">
       <span class="text-gray-500 dark:text-gray-400 mr-2">{{ t('register.hasAccount') }}</span>
-      <RouterLink :to="{ name: 'login' }" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 font-semibold transition cursor-default">
+      <RouterLink :to="{ name: 'login' }" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 font-semibold transition">
         <Icon icon="mdi:login-variant" class="w-5 h-5" /> {{ t('register.loginLink') }}
       </RouterLink>
     </div>

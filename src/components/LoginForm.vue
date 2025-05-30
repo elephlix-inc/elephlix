@@ -11,6 +11,7 @@ const { t } = useI18n();
 
 const loginForm = ref({ email: "", password: "" });
 const loading = computed(() => auth.loginStatus === "pending");
+
 const emailValid = computed(() => /.+@.+\..+/.test(loginForm.value.email));
 const passwordValid = computed(() => loginForm.value.password.length >= 6);
 const canSubmit = computed(() => emailValid.value && passwordValid.value);
@@ -46,7 +47,7 @@ watch(
       <div class="relative">
         <label for="login-email" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-200">{{ t('login.email') }}</label>
         <div :class="[
-          'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 focus-within:ring-2',
+          'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 dark:text-white focus-within:ring-2',
           emailValid ? 'border-green-500 focus-within:ring-green-400' : loginForm.email ? 'border-red-500 focus-within:ring-red-400' : 'border-gray-300 dark:border-gray-700'
         ]">
           <span class="pl-3"><Icon icon="mdi:email-outline" class="text-gray-400 w-5 h-5" /></span>
@@ -60,7 +61,7 @@ watch(
       <div class="relative">
         <label for="login-password" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-200">{{ t('login.password') }}</label>
         <div :class="[
-          'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 focus-within:ring-2',
+          'flex items-center border rounded-lg bg-gray-50 dark:bg-gray-900 dark:text-white focus-within:ring-2',
           passwordValid ? 'border-green-500 focus-within:ring-green-400' : loginForm.password ? 'border-red-500 focus-within:ring-red-400' : 'border-gray-300 dark:border-gray-700'
         ]">
           <span class="pl-3"><Icon icon="mdi:lock-outline" class="text-gray-400 w-5 h-5" /></span>
@@ -71,7 +72,7 @@ watch(
           {{  t('login.passwordError') }}
         </div>
       </div>
-      <button type="submit" :disabled="loading || !canSubmit" class="w-full text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-base px-5 py-2.5 flex items-center justify-center gap-2 transition-all duration-150 shadow-md">
+      <button type="submit" :disabled="loading || !canSubmit" class="w-full text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-base px-5 py-2.5 flex items-center justify-center gap-2 transition-all duration-150 shadow-md cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
         <Icon icon="mdi:login-variant" class="w-5 h-5" />
         {{ t('login.submit') }}
       </button>
@@ -85,7 +86,7 @@ watch(
     </form>
     <div class="flex items-center justify-center">
       <span class="text-gray-500 dark:text-gray-400 mr-2">{{ t('login.noAccount') }}</span>
-      <RouterLink :to="{ name: 'register' }" type="button" class="inline-flex items-center gap-1 text-green-600 hover:text-green-800 font-semibold transition cursor-default">
+      <RouterLink :to="{ name: 'register' }" type="button" class="inline-flex items-center gap-1 text-green-600 hover:text-green-800 font-semibold transition">
         <Icon icon="mdi:account-plus-outline" class="w-5 h-5" /> {{ t('login.registerLink') }}
       </RouterLink>
     </div>

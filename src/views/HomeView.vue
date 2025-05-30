@@ -8,14 +8,14 @@ import { useQuery } from "@tanstack/vue-query";
 import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-const { t } = useI18n();
-const errorMessage = ref<string | null>(null);
-
 const auth = useAuthStore();
+const { t } = useI18n();
 
 onMounted(() => {
   auth.ensureAuthReady();
 });
+
+const errorMessage = ref<string | null>(null);
 
 const {
   data: videos,
