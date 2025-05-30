@@ -1,0 +1,37 @@
+{
+  "login": {
+    "title": "Connexion",
+    "email": "Email",
+    "emailPlaceholder": "Votre email",
+    "emailError": "Format d'email invalide",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Votre mot de passe",
+    "passwordError": "Le mot de passe doit contenir au moins 6 caractères",
+    "submit": "Se connecter",
+    "loading": "Chargement...",
+    "error": "Erreur: {message}",
+    "noAccount": "Pas de compte ?",
+    "registerLink": "S'inscrire"
+  },
+  "register": {
+    "title": "Créer un compte",
+    "email": "Email",
+    "emailPlaceholder": "Votre email",
+    "emailError": "Format d'email invalide",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Votre mot de passe",
+    "passwordError": "Le mot de passe doit contenir au moins 6 caractères",
+    "username": "Nom d'utilisateur",
+    "usernamePlaceholder": "Votre nom d'utilisateur",
+    "usernameError": "Le nom d'utilisateur doit contenir au moins 3 caractères",
+    "submit": "Créer un compte",
+    "loading": "Création du compte...",
+    "error": "Erreur : {message}",
+    "hasAccount": "Déjà un compte ?",
+    "loginLink": "Se connecter"
+  },
+  "notfound": {
+    "message": "Oups ! Cette page n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
+  }
+}

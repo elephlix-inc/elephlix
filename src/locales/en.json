@@ -1,0 +1,37 @@
+{
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "emailPlaceholder": "Your email",
+    "emailError": "Invalid email format",
+    "password": "Password",
+    "passwordPlaceholder": "Your password",
+    "passwordError": "Password must be at least 6 characters",
+    "submit": "Sign in",
+    "loading": "Loading...",
+    "error": "Error: {message}",
+    "noAccount": "No account?",
+    "registerLink": "Register"
+  },
+  "register": {
+    "title": "Register",
+    "email": "Email",
+    "emailPlaceholder": "Your email",
+    "emailError": "Invalid email format",
+    "password": "Password",
+    "passwordPlaceholder": "Your password",
+    "passwordError": "Password must be at least 6 characters",
+    "username": "Username",
+    "usernamePlaceholder": "Your username",
+    "usernameError": "Username must be at least 3 characters",
+    "submit": "Register",
+    "loading": "Creating account...",
+    "error": "Error: {message}",
+    "hasAccount": "Already have an account?",
+    "loginLink": "Sign in"
+  },
+  "notfound": {
+    "message": "Oops! This page does not exist or has been moved.",
+    "backHome": "Back to home"
+  }
+}

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "contributors": ["0BLV1V10N1 (https://github.com/0BL1V10N1)"],
+  "contributors": [
+    "0BLV1V10N1 (https://github.com/0BL1V10N1)"
+  ],
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
@@ -29,20 +31,20 @@
   "bugs": {
     "url": "https://github.com/elephlix-inc/elephlix/issues"
   },
-  "keywords": ["typescript", "vue", "website", "videos"],
+  "keywords": [
+    "typescript",
+    "vue",
+    "website",
+    "videos"
+  ],
   "license": "MIT",
   "dependencies": {
     "@tanstack/vue-query": "^5.76.2",
-    "@vueuse/core": "^13.2.0",
     "axios": "^1.9.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-vue-next": "^0.511.0",
+    "flowbite": "^3.1.2",
     "pinia": "^3.0.1",
-    "reka-ui": "^2.2.1",
-    "tailwind-merge": "^3.3.0",
-    "tw-animate-css": "^1.3.0",
     "vue": "^3.5.13",
+    "vue-i18n": "^11.1.5",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
@@ -50,7 +52,6 @@
     "@codecov/vite-plugin": "^1.9.1",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@iconify-json/radix-icons": "^1.2.2",
     "@iconify/vue": "^5.0.0",
     "@tailwindcss/vite": "^4.1.7",
     "@tsconfig/node22": "^22.0.1",

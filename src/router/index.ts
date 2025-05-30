@@ -1,15 +1,81 @@
-import HomeView from "@/views/HomeView.vue";
+import {
+  SUPPORT_LOCALES,
+  i18n,
+  loadLocaleMessages,
+  setI18nLanguage,
+} from "@/services/i18n";
+import { useAuthStore } from "@/stores/auth";
 import { createRouter, createWebHistory } from "vue-router";
 
+declare module "vue-router" {
+  interface RouteMeta {
+    requiresAuth: boolean;
+  }
+}
+
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: HomeView,
+      path: "/:locale",
+      children: [
+        {
+          path: "",
+          name: "home",
+          component: () => import("@/views/HomeView.vue"),
+        },
+        {
+          path: "login",
+          name: "login",
+          component: () => import("@/views/LoginView.vue"),
+        },
+        {
+          path: "register",
+          name: "register",
+          component: () => import("@/views/RegisterView.vue"),
+          meta: {
+            requiresAuth: true,
+          },
+        },
+        {
+          path: "logout",
+          name: "logout",
+          redirect: (to) => {
+            const auth = useAuthStore();
+            auth.logout();
+
+            return { name: "login", params: { locale: to.params.locale } };
+          },
+        },
+        {
+          path: ":pathMatch(.*)*",
+          name: "not-found",
+          component: () => import("@/views/NotFoundView.vue"),
+        },
+      ],
     },
   ],
+});
+
+router.beforeEach(async (to, _from, next) => {
+  const token = localStorage.getItem("token");
+  const paramsLocale = to.params.locale as string;
+
+  if (!SUPPORT_LOCALES.includes(paramsLocale)) {
+    return next(`/${i18n.global.fallbackLocale.value}`);
+  }
+
+  if (!i18n.global.availableLocales.includes(paramsLocale)) {
+    await loadLocaleMessages(i18n, paramsLocale);
+  }
+
+  setI18nLanguage(i18n, paramsLocale);
+
+  if (to.meta.requiresAuth && !token) {
+    return next({ name: "login", params: { locale: paramsLocale } });
+  }
+
+  next();
 });
 
 export default router;

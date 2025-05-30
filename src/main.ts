@@ -8,7 +8,8 @@ import {
 import { createPinia } from "pinia";
 import { createApp } from "vue";
 
-import { axios } from "@/services";
+import axios from "@/services/axios";
+import { i18n } from "@/services/i18n";
 import App from "./App.vue";
 import router from "./router";
 
@@ -31,6 +32,7 @@ const queryClient = new QueryClient({
 });
 
 app.use(createPinia());
+app.use(i18n);
 app.use(VueQueryPlugin, { queryClient });
 app.use(router);
 
