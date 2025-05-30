@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
 import { Icon } from "@iconify/vue";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
-import { RouterLink } from "vue-router";
+import { useRouter } from "vue-router";
 
 const auth = useAuthStore();
+const router = useRouter();
 const { t } = useI18n();
+
 const registerForm = ref({ email: "", password: "", username: "" });
 const loading = computed(() => auth.registerStatus === "pending");
-
 const emailValid = computed(() => /.+@.+\..+/.test(registerForm.value.email));
 const passwordValid = computed(() => registerForm.value.password.length >= 6);
 const usernameValid = computed(() => registerForm.value.username.length >= 3);
@@ -33,12 +34,21 @@ function handleRegister() {
     username: registerForm.value.username,
   });
 }
+
+watch(
+  () => auth.registerStatus,
+  (status) => {
+    if (status === "success") {
+      router.push({ name: "home" });
+    }
+  },
+);
 </script>
 
 <template>
   <form @submit.prevent="handleRegister" class="space-y-6 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 max-w-md mx-auto">
-    <h2 class="text-2xl font-extrabold flex items-center gap-3 mb-2">
-      <Icon icon="mdi:account-plus-outline" class="text-green-600 w-7 h-7" />
+    <h2 class="text-2xl dark:text-white font-bold flex items-center gap-3 mb-2">
+      <Icon icon="mdi:account-plus-outline" class="text-green-60 w-7 h-7" />
       {{ t('register.title') }}
     </h2>
     <div class="relative">

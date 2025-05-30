@@ -1,4 +1,17 @@
 {
+  "home": {
+    "errorLoading": "Error loading videos.",
+    "retry": "Retry",
+    "noVideos": "No videos available."
+  },
+  "video": {
+    "loading": "Loading video...",
+    "errorLoading": "Error loading video.",
+    "retry": "Retry",
+    "noSource": "No video source",
+    "views": "views",
+    "subscribers": "{count} subscribers"
+  },
   "login": {
     "title": "Login",
     "email": "Email",
@@ -33,5 +46,13 @@
   "notfound": {
     "message": "Oops! This page does not exist or has been moved.",
     "backHome": "Back to home"
+  },
+  "navbar": {
+    "light": "Light",
+    "dark": "Dark",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "account": "Account"
   }
 }

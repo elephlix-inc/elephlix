@@ -1,4 +1,17 @@
 {
+  "home": {
+    "errorLoading": "Erreur lors du chargement des vidéos.",
+    "retry": "Réessayer",
+    "noVideos": "Aucune vidéo disponible."
+  },
+  "video": {
+    "loading": "Chargement de la vidéo...",
+    "errorLoading": "Erreur lors du chargement de la vidéo.",
+    "retry": "Réessayer",
+    "noSource": "Aucune source vidéo",
+    "views": "vues",
+    "subscribers": "{count} abonnés"
+  },
   "login": {
     "title": "Connexion",
     "email": "Email",
@@ -33,5 +46,13 @@
   "notfound": {
     "message": "Oups ! Cette page n'existe pas ou a été déplacée.",
     "backHome": "Retour à l'accueil"
+  },
+  "navbar": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "register": "Créer un compte",
+    "account": "Mon compte"
   }
 }

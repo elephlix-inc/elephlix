@@ -6,7 +6,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900">
+  <main class="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900">
     <div class="flex flex-col items-center gap-4 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
       <span class="text-7xl text-red-500">
         <Icon icon="mdi:alert-octagon-outline" class="w-20 h-20" />
@@ -18,5 +18,5 @@ const { t } = useI18n();
         {{ t('notfound.backHome') }}
       </router-link>
     </div>
-  </div>
+  </main>
 </template>

@@ -1,9 +1,4 @@
-export interface User {
-  id: string;
-  email: string;
-  username: string;
-  slug: string;
-}
+import type { User } from "./data";
 
 export interface AuthResponse {
   user: User;

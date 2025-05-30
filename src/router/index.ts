@@ -23,6 +23,13 @@ const router = createRouter({
           path: "",
           name: "home",
           component: () => import("@/views/HomeView.vue"),
+          meta: { requiresAuth: true },
+        },
+        {
+          path: "video/:slug",
+          name: "video",
+          component: () => import("@/views/VideoView.vue"),
+          meta: { requiresAuth: true },
         },
         {
           path: "login",
@@ -33,18 +40,15 @@ const router = createRouter({
           path: "register",
           name: "register",
           component: () => import("@/views/RegisterView.vue"),
-          meta: {
-            requiresAuth: true,
-          },
         },
         {
           path: "logout",
           name: "logout",
-          redirect: (to) => {
+          redirect: () => {
             const auth = useAuthStore();
             auth.logout();
 
-            return { name: "login", params: { locale: to.params.locale } };
+            return { name: "login" };
           },
         },
         {
@@ -62,6 +66,12 @@ router.beforeEach(async (to, _from, next) => {
   const paramsLocale = to.params.locale as string;
 
   if (!SUPPORT_LOCALES.includes(paramsLocale)) {
+    const navigatorLocale = navigator.language.split("-")[0];
+
+    if (SUPPORT_LOCALES.includes(navigatorLocale)) {
+      return next(`/${navigatorLocale}`);
+    }
+
     return next(`/${i18n.global.fallbackLocale.value}`);
   }
 

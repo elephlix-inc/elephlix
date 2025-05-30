@@ -27,6 +27,9 @@ const queryClient = new QueryClient({
         const response = await axios.get<T>(url);
         return response.data;
       },
+      staleTime: 1000 * 60 * 1,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
     },
   },
 });

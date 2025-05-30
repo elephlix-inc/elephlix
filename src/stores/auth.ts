@@ -3,8 +3,8 @@ import type {
   AuthResponse,
   LoginCredentials,
   RegisterCredentials,
-  User,
 } from "@/types/auth";
+import type { User } from "@/types/data";
 import { useMutation, useQueryClient } from "@tanstack/vue-query";
 import { defineStore } from "pinia";
 import { computed, ref, watch } from "vue";
@@ -85,9 +85,11 @@ export const useAuthStore = defineStore("auth", () => {
     }
   }
 
-  (async () => {
-    await refresh();
-  })();
+  async function ensureAuthReady() {
+    if (user.value && token.value) return;
+
+    refresh();
+  }
 
   watch(
     token,
@@ -114,5 +116,6 @@ export const useAuthStore = defineStore("auth", () => {
     registerError: registerMutation.error,
     logout,
     refresh,
+    ensureAuthReady,
   };
 });
