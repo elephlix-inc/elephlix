@@ -8,9 +8,14 @@
     "loading": "Chargement de la vidéo...",
     "errorLoading": "Erreur lors du chargement de la vidéo.",
     "retry": "Réessayer",
-    "noSource": "Aucune source vidéo",
     "views": "vues",
-    "subscribers": "{count} abonnés"
+    "subscribers": "{count} abonnés",
+    "delete": "Supprimer la vidéo",
+    "deleteError": "Erreur lors de la suppression.",
+    "comments": "Commentaires",
+    "addComment": "Commenter",
+    "addCommentPlaceholder": "Ajouter un commentaire...",
+    "noComments": "Aucun commentaire pour le moment."
   },
   "profile": {
     "upload": "Publier une vidéo",
@@ -23,6 +28,9 @@
     "file": "Fichier vidéo",
     "filePlaceholder": "Aucun fichier sélectionné",
     "fileError": "Le fichier vidéo est invalide.",
+    "thumbnail": "Miniature (optionnel)",
+    "thumbnailPlaceholder": "Aucune miniature sélectionnée",
+    "thumbnailError": "Le fichier doit être une image valide.",
     "submit": "Publier",
     "uploading": "Publication...",
     "uploadSuccess": "Vidéo publiée avec succès !",

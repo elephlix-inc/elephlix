@@ -1,17 +1,14 @@
 <script setup lang="ts">
 import type { Video } from "@/types/data";
 import { Icon } from "@iconify/vue";
-import { computed } from "vue";
 
 interface Props {
   video: Video;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
 
-const thumbnail = computed(() => {
-  return "https://www.biblecenterchurch.com/wp-content/uploads/2018/10/video-placeholder-4453_1080x675.png";
-});
+const thumbnail = `${import.meta.env.VITE_API_BASE_URL}/uploads/${props.video.slug}/thumbnail.jpg`;
 </script>
 
 <template>

@@ -46,7 +46,7 @@ const {
         </button>
       </div>
 
-      <VideoUploadForm v-if="showUpload" @uploaded="() => refetch()" />
+      <VideoUploadForm v-if="showUpload" @uploaded="refetch()" />
 
       <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{{ t('profile.myVideos') }}</h3>
       <div v-if="isLoading" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

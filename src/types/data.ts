@@ -15,4 +15,14 @@ export interface Video {
   author: User;
   views: number;
   uploadedAt: string;
+  comments?: Comment[];
+}
+
+export interface Comment {
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string | null;
+  author: User;
+  replies: Comment[];
 }
