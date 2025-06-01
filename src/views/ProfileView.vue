@@ -32,7 +32,7 @@ const {
   <MainLayout>
     <div class="max-w-4xl mx-auto py-8 px-4">
       <div class="flex items-center gap-4 mb-8">
-        <Icon icon="mdi:account-circle" class="w-16 h-16 text-gray-400 dark:text-gray-600" />
+        <Icon icon="mdi:account-circle" class="w-16 h-16 text-gray-700 dark:text-gray-200" />
         <div>
           <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{{ auth.user?.username }}</h2>
           <p class="text-gray-600 dark:text-gray-300">{{ auth.user?.email }}</p>

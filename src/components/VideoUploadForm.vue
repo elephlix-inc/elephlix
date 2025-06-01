@@ -112,7 +112,7 @@ const submitUpload = () => uploadMutation.mutate();
   <div class="mb-8 bg-white dark:bg-gray-800 p-6 rounded-xl shadow border border-gray-200 dark:border-gray-700">
     <form @submit.prevent="submitUpload" class="space-y-6">
       <h2 class="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-2">
-        <Icon icon="mdi:video-plus" class="w-7 h-7 text-blue-600" />
+        <Icon icon="mdi:video-plus" class="w-9 h-9 text-blue-600" />
         {{ t('profile.upload') }}
       </h2>
       <div>
