@@ -17,6 +17,9 @@ const uploadForm = ref({
   thumbnail: null as File | null,
 });
 
+const fileInput = ref<HTMLInputElement | null>(null);
+const thumbnailInput = ref<HTMLInputElement | null>(null);
+
 const MAX_VIDEO_SIZE = 250 * 1024 * 1024; // 250 Mo
 const MAX_THUMBNAIL_SIZE = 4 * 1024 * 1024; // 4 Mo
 
@@ -78,6 +81,9 @@ const uploadMutation = useMutation({
       file: null,
       thumbnail: null,
     };
+
+    if (fileInput.value) fileInput.value.value = "";
+    if (thumbnailInput.value) thumbnailInput.value.value = "";
 
     //! Not the most optimized
     queryClient.invalidateQueries();
@@ -148,6 +154,7 @@ const submitUpload = () => uploadMutation.mutate();
             type="file"
             accept="video/mp4"
             @change="handleFileChange"
+            ref="fileInput"
             required
             class="peer block w-full text-sm text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-blue-400 transition file:cursor-pointer file:opacity-0 file:absolute file:w-full file:h-full"
             style="z-index:2; opacity:0; position:absolute; left:0; top:0; height:100%; width:100%;"
@@ -171,6 +178,7 @@ const submitUpload = () => uploadMutation.mutate();
             type="file"
             accept="image/webp,image/jpeg,image/png"
             @change="handleThumbnailChange"
+            ref="thumbnailInput"
             class="peer block w-full text-sm text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-blue-400 transition file:cursor-pointer file:opacity-0 file:absolute file:w-full file:h-full"
             style="z-index:2; opacity:0; position:absolute; left:0; top:0; height:100%; width:100%;"
           />
