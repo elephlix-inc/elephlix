@@ -32,12 +32,12 @@ const fileValid = computed(
 );
 const thumbnailValid = computed(
   () =>
-    !!uploadForm.value.thumbnail &&
-    typeof uploadForm.value.thumbnail.type === "string" &&
-    ["image/webp", "image/jpeg", "image/png"].includes(
-      uploadForm.value.thumbnail.type,
-    ) &&
-    uploadForm.value.thumbnail.size <= MAX_THUMBNAIL_SIZE,
+    !uploadForm.value.thumbnail ||
+    (typeof uploadForm.value.thumbnail.type === "string" &&
+      ["image/webp", "image/jpeg", "image/png"].includes(
+        uploadForm.value.thumbnail.type,
+      ) &&
+      uploadForm.value.thumbnail.size <= MAX_THUMBNAIL_SIZE),
 );
 const canSubmit = computed(
   () =>
