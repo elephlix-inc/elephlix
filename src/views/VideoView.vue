@@ -3,17 +3,13 @@ import MainLayout from "@/layouts/MainLayout.vue";
 import { useAuthStore } from "@/stores/auth";
 import type { Video } from "@/types/data";
 import { useQuery } from "@tanstack/vue-query";
-import { computed, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
 
 const auth = useAuthStore();
 const { t } = useI18n();
 const route = useRoute();
-
-onMounted(() => {
-  auth.ensureAuthReady();
-});
 
 const slug = route.params.slug;
 const url = `${import.meta.env.VITE_API_BASE_URL}/uploads/videos/${slug}/video.mp4`;

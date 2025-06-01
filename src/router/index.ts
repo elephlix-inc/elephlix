@@ -68,6 +68,7 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, _from, next) => {
+  const auth = useAuthStore();
   const token = localStorage.getItem("token");
   const paramsLocale = to.params.locale as string;
 
@@ -87,9 +88,10 @@ router.beforeEach(async (to, _from, next) => {
 
   setI18nLanguage(i18n, paramsLocale);
 
-  if (to.meta.requiresAuth && !token) {
-    return next({ name: "login", params: { locale: paramsLocale } });
-  }
+  if (!to.meta.requiresAuth) return next();
+
+  if (!token) return next({ name: "login", params: { locale: paramsLocale } });
+  await auth.ensureAuthReady();
 
   next();
 });

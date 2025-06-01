@@ -5,15 +5,11 @@ import MainLayout from "@/layouts/MainLayout.vue";
 import { useAuthStore } from "@/stores/auth";
 import type { Video } from "@/types/data";
 import { useQuery } from "@tanstack/vue-query";
-import { computed, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const auth = useAuthStore();
 const { t } = useI18n();
-
-onMounted(() => {
-  auth.ensureAuthReady();
-});
 
 const errorMessage = ref<string | null>(null);
 
